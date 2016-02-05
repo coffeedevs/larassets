@@ -11,7 +11,8 @@ class AssetsController extends Controller
     {
         $original = Input::get('string');
 
-
+        $assetLeft = '{{ asset(\'';
+        $assetRight = '\') }}';
         $href = 'href="';
         $src = 'src="';
         $css = '.css';
@@ -21,16 +22,16 @@ class AssetsController extends Controller
             $hrefPos = strpos($line, $href);
             $srcPos = strpos($line, $src);
             $protocol = strpos($line, 'http') ? strpos($line, 'http') : strpos($line, 'https');
-            if ($protocol)
+            if ($protocol || strpos($line, $assetLeft) || strpos($line, $assetRight))
                 array_push($final, $line);
             else if ($hrefPos) {
-                $left = substr_replace($line, '{{ asset(\'', $hrefPos + strlen($href), 0);
+                $left = substr_replace($line, $assetLeft, $hrefPos + strlen($href), 0);
                 if ($extensionPos = strpos($left, $css))
-                    array_push($final, substr_replace($left, '\') }}', $extensionPos + strlen($css), 0));
+                    array_push($final, substr_replace($left, $assetRight, $extensionPos + strlen($css), 0));
             } else if ($srcPos) {
-                $left = substr_replace($line, '{{ asset(\'', $srcPos + strlen($src), 0);
+                $left = substr_replace($line, $assetLeft, $srcPos + strlen($src), 0);
                 if ($extensionPos = strpos($left, $js))
-                    array_push($final, substr_replace($left, '\') }}', $extensionPos + strlen($js), 0));
+                    array_push($final, substr_replace($left, $assetRight, $extensionPos + strlen($js), 0));
             } else {
                 if (preg_match('/<\/script>/', $line))
                     $final[sizeof($final) - 1] = last($final) . $line;//return view('app.apply')->withErrors('No href or src attribute found');
@@ -39,6 +40,6 @@ class AssetsController extends Controller
         }
 
 
-        return view('app.apply', compact('final'));
+        return $final;
     }
 }

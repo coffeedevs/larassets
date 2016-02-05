@@ -1,21 +1,12 @@
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="{{ url('/') }}">Larassets</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse pull-right">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('about') }}">About</a></li>
-                <li><a href="{{ url('contact') }}">Contact</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
+        <div class="nav navbar-nav pull-xs-right">
+            <a class="nav-item nav-link active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{{ url('contact') }}">Contact</a>
+            <a class="nav-item nav-link" href="{{ url('about') }}">About</a>
+        </div>
     </div>
 </nav>

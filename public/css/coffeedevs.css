@@ -1,0 +1,42 @@
+body {
+    background-color: #f4645f;
+    color: white;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif' !important;
+}
+
+a {
+    color: white;
+}
+
+.main {
+    margin-top: 100px;
+}
+
+.textarea {
+    width: 600px;
+    height: 200px !important;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-size: 12px;
+    font-family: 'Source Code Pro', Tahoma, sans-serif;
+}
+
+.btn-primary {
+    background-color: white;
+    border: 0;
+    color: #f4645f;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: white;
+    border: 0;
+    color: #e70c1b;
+}
+
+.navbar a {
+    color: #f4645f !important;
+}
+
+.navbar a:hover {
+    color: #e74430 !important;
+}
