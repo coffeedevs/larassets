@@ -16,6 +16,9 @@
 <div class="container centered">
     @yield('content')
 </div>
+@section('footer')
+    @include('includes.footer')
+@show
 @section('scripts')
     @include('includes.scripts')
 @show
