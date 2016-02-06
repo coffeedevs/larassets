@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('app.index');
 });
-Route::get('apply', 'AssetsController@apply');
+Route::post('apply', 'AssetsController@apply');
 
 /*
 |--------------------------------------------------------------------------

@@ -7,18 +7,31 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
 <script src="{{ asset('js/vue-resource.min.js') }}"></script>
 <script>
+    Vue.config.delimiters = ['[[', ']]']
     var vm = new Vue({
         el: '#vue',
         data: {
-            message: ""
+            message: "",
+            secure: false
         },
         methods: {
             submit: function () {
-                this.$http({url: 'apply?string=' + this.message, method: 'GET'}).then(function (response) {
-                    this.$set('message', response.data);
+                request = this.$http({
+                    url: 'apply',
+                    method: 'post',
+                    data: {"string": this.message, "secure": this.secure},
+                    emulateHTTP: true
+                }).then(function (response) {
+                    vm.message = "";
+                    response.data.forEach(function (item) {
+                        vm.message += item + '\n';
+                    });
                 }, function (response) {
                     console.error(response);
                 });
+            },
+            clear: function () {
+                vm.message = "";
             }
         }
     })

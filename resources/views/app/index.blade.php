@@ -11,7 +11,7 @@
                 <label class="col-md-12 control-label" for="string"></label>
 
                 <div class="col-md-12">
-                    <textarea class="form-control textarea" id="string" name="string" v-model="message">@{{ message }}</textarea>
+                    <textarea class="form-control textarea" id="string" name="string" v-model="message">[[ message ]]</textarea>
                 </div>
             </div>
 
@@ -22,6 +22,13 @@
                 <div class="col-md-12">
                     <button type="button" id="submit" name="submit" class="btn btn-primary" v-on:click="submit">Submit
                     </button>
+                    <button type="button" class="btn btn-primary" id="clipboard" data-clipboard-target="#string">
+                        Copy to clipboard!
+                    </button>
+                    <button type="button" class="btn btn-primary" v-on:click="clear">Clear</button>
+                    <label class="">
+                        <input type="checkbox" autocomplete="off" v-model="secure">Secure asset?
+                    </label>
                 </div>
             </div>
         </form>

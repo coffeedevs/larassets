@@ -13,8 +13,8 @@ a {
 }
 
 .textarea {
-    width: 600px;
-    height: 200px !important;
+    width: 1024px;
+    height: 400px !important;
     border: 3px solid #cccccc;
     padding: 5px;
     font-size: 12px;
