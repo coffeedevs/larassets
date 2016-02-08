@@ -8,20 +8,13 @@ a {
     color: white;
 }
 
-#clipboard {
-    width: 160px;
-}
-
-#secure {
-    width: 160px;
-}
-
 .main {
     margin-top: 100px;
 }
 
 .btn {
     border: 0 !important;
+    margin: 0.10rem;
 }
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
@@ -29,10 +22,8 @@ a {
 }
 
 .textarea {
-    min-width: 400px;
     width: 100%;
-    height: 40%;
-    min-height: 300px !important;
+    height: 15rem;
     border: 3px solid #cccccc;
     padding: 5px;
     font-size: 12px;
