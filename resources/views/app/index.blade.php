@@ -1,6 +1,5 @@
 @extends('app')
 @section('content')
-
     <div class="main" id="vue" xmlns:v-on="http://www.w3.org/1999/xhtml">
         <h2>Paste your HTML here</h2>
         <small>Larassets will wrap relative resource routes with the asset() helper function</small>

@@ -40,7 +40,14 @@
                         });
                     }
                 }, function (response) {
-                    console.error(response);
+                    if (!vm.show)
+                        vm.show = true;
+                    else {
+                        $('#processed').removeClass('shake animated').addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                            $(this).removeClass('shake animated');
+                        });
+                    }
+                    vm.processed = "There was an error processing your request: " + response.status + " " + response.statusText;
                 });
             },
             clear: function () {

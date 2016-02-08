@@ -13,8 +13,12 @@
 @section('navbar')
     @include('includes.navbar')
 @show
-<div class="container centered">
-    @yield('content')
+<div style="margin-top:50px;">
+    @include('includes.leftcol')
+    <div class=" container centered col-lg-8">
+        @yield('content')
+    </div>
+    @include('includes.rightcol')
 </div>
 @section('footer')
     @include('includes.footer')
