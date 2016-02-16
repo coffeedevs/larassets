@@ -2,8 +2,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="{{ asset('js/tether.min.js') }}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
-integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
-crossorigin="anonymous"></script>
+        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
+        crossorigin="anonymous"></script>
 <script src="{{ asset('js/clipboard.min.js') }}"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
 <script src="{{ asset('js/vue-resource.min.js') }}"></script>
@@ -127,5 +127,19 @@ crossorigin="anonymous"></script>
 
     ga('create', 'UA-63308453-8', {'siteSpeedSampleRate': 50});
     ga('send', 'pageview');
-
+</script>
+<script type="text/javascript">
+    window.heap = window.heap || [], heap.load = function (e, t) {
+        window.heap.appid = e, window.heap.config = t = t || {};
+        var n = t.forceSSL || "https:" === document.location.protocol, a = document.createElement("script");
+        a.type = "text/javascript", a.async = !0, a.src = (n ? "https:" : "http:") + "//cdn.heapanalytics.com/js/heap-" + e + ".js";
+        var o = document.getElementsByTagName("script")[0];
+        o.parentNode.insertBefore(a, o);
+        for (var r = function (e) {
+            return function () {
+                heap.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+        }, p = ["clearEventProperties", "identify", "setEventProperties", "track", "unsetEventProperty"], c = 0; c < p.length; c++)heap[p[c]] = r(p[c])
+    };
+    heap.load("2834137027");
 </script>
