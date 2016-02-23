@@ -5,5 +5,6 @@
 <link rel="stylesheet" href="{{ asset('css/tether.min.css') }}">
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <script src="//fast.eager.io/TKH5lNTYqp.js"></script>

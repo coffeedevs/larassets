@@ -15,7 +15,8 @@
             </div>
             <div class="form-group">
                 <div class="animated" v-show="show" transition="zoom">
-                    <textarea class="form-control textarea " id="processed" name="processed" v-model="processed">@{{ processed  }}</textarea></div>
+                    <textarea class="form-control textarea " id="processed" name="processed"
+                              v-model="processed">@{{ processed  }}</textarea></div>
             </div>
 
             <!-- Button -->
@@ -30,8 +31,25 @@
                     <button type="button" class="btn btn-primary" v-on:click="clear">Clear</button>
                     <button type="button" class="btn btn-primary" v-on:click="test">Test</button>
                     <button type="button" class="btn btn-primary" v-on:click="secure" id="secure">Secure Asset?</button>
+                    <div class="col-lg-12">
+                        <ul>
+                            <li v-for="elixirResource in elixirResources">@{{ elixirResource.name }} - <i
+                                        v-on:click="removeElixirResource"
+                                        class="fa fa-remove"></i></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </form>
+        <div class="row">
+            <div class="input-group col-lg-6">
+                <input type="text" class="form-control" v-model="elixirResourceInput"
+                       v-on:keyup.enter="addElixirResource"
+                       placeholder="eg: app.js or all.css">
+            </div>
+            <button class="btn btn-primary" type="button" v-on:click="addElixirResource">Add Elixir
+                resource!
+            </button>
+        </div>
     </div>
 @stop

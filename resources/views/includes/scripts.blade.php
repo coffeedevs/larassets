@@ -15,19 +15,25 @@
     var vm = new Vue({
         el: '#vue',
         data: {
-            placeholder: "For example:\r\n\r\n<link rel=\"stylesheet\" href=\"\/css\/coffeedevs.css\">\r\n<link rel=\"stylesheet\" href=\"\/css\/animate.css\">\r\n<link href=\'https:\/\/fonts.googleapis.com\/css?family=Source+Code+Pro\' rel=\'stylesheet\' type=\'text\/css\'>\r\n<link href=\'https:\/\/fonts.googleapis.com\/css?family=Open+Sans\' rel=\'stylesheet\' type=\'text\/css\'>\r\n\r\n OR \r\n\r\n<script src=\"\/js\/clipboard.min.js\"><\/script>\r\n<script src=\"http:\/\/cdnjs.cloudflare.com\/ajax\/libs\/vue\/1.0.16\/vue.min.js\"><\/script>\r\n<script src=\"\/js\/vue-resource.min.js\"><\/script>\r\n",
-            stub: "<link rel=\"stylesheet\" href=\"\/css\/coffeedevs.css\">\r\n<link rel=\"stylesheet\" href=\"\/css\/animate.css\">\r\n<link href=\'https:\/\/fonts.googleapis.com\/css?family=Source+Code+Pro\' rel=\'stylesheet\' type=\'text\/css\'>\r\n<link href=\'https:\/\/fonts.googleapis.com\/css?family=Open+Sans\' rel=\'stylesheet\' type=\'text\/css\'>\r\n<script src=\"\/js\/clipboard.min.js\"><\/script>\r\n<script src=\"http:\/\/cdnjs.cloudflare.com\/ajax\/libs\/vue\/1.0.16\/vue.min.js\"><\/script>\r\n<script src=\"\/js\/vue-resource.min.js\"><\/script>\r\n",
+            placeholder: "For example:\r\n\r\n<link rel=\"stylesheet\" href=\"\/css\/coffeedevs.css\">\r\n<link href=\'https:\/\/fonts.googleapis.com\/css?family=Source+Code+Pro\' rel=\'stylesheet\' type=\'text\/css\'>\r\n\r\n OR \r\n\r\n<script src=\"\/js\/clipboard.min.js\"><\/script>\r\n<script src=\"http:\/\/cdnjs.cloudflare.com\/ajax\/libs\/vue\/1.0.16\/vue.min.js\"><\/script>\r\n<script src=\"\/js\/vue-resource.min.js\"><\/script>\r\n",
+            stub: "<link rel=\"stylesheet\" href=\"\/css\/coffeedevs.css\">\r\n<link href=\'https:\/\/fonts.googleapis.com\/css?family=Source+Code+Pro\' rel=\'stylesheet\' type=\'text\/css\'>\r\n<script src=\"\/js\/clipboard.min.js\"><\/script>\r\n<script src=\"http:\/\/cdnjs.cloudflare.com\/ajax\/libs\/vue\/1.0.16\/vue.min.js\"><\/script>\r\n<script src=\"\/js\/vue-resource.min.js\"><\/script>\r\n",
             message: "",
             processed: "",
             isSecure: false,
-            show: false
+            show: false,
+            elixirResources: [],
+            elixirResourceInput: ""
         },
         methods: {
             submit: function () {
                 request = vm.$http({
                     url: 'apply',
                     method: 'post',
-                    data: {"string": vm.message, "secure": vm.isSecure}
+                    data: {
+                        "string": vm.message,
+                        "secure": vm.isSecure,
+                        "elixirResources": vm.elixirResources
+                    }
                 }).then(function (response) {
                     vm.processed = "";
                     response.data.forEach(function (item) {
@@ -81,6 +87,16 @@
                 }, function (response) {
                     console.error(response);
                 });
+            },
+            addElixirResource: function () {
+                var text = this.elixirResourceInput.trim();
+                if (text) {
+                    this.elixirResources.push({name: text});
+                    this.elixirResourceInput = '';
+                }
+            },
+            removeElixirResource: function (index) {
+                this.elixirResources.splice(index, 1)
             }
         }
     })
