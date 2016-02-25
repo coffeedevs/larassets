@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('app.index');
-});
-Route::post('apply', 'AssetsController@apply');
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +24,11 @@ Route::post('apply', 'AssetsController@apply');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/', function () {
+        return view('app.index');
+    });
+    Route::get('about', function () {
+        return view('app.about');
+    });
+    Route::post('apply', 'AssetsController@apply');
 });

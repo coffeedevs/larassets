@@ -34,7 +34,7 @@ class AssetsController extends Controller
 
             $isElixirResource = $this->checkForElixir($line, $elixirResources);
             if ($isElixirResource)
-                array_push($final, $this->wrapElixir($line));
+                array_push($final, $isElixirResource);
             else {
                 $extension = self::getExtension($line);
                 if ($hrefPos) {
@@ -75,20 +75,14 @@ class AssetsController extends Controller
         if (is_null($elixir))
             return false;
         $array = explode('"', $string);
-        if (sizeof($array) > 1) {
-            foreach ($elixir as $resource) {
-                if (strpos($array[1], $resource['name']))
-                    return true;
+        foreach ($elixir as $resource) {
+            foreach ($array as $item) {
+                if (strpos($item, $resource['name'])) {
+                    return str_replace($item, '{{ elixir(\'' . $item . '\') }}', join('"', $array));
+                }
             }
-        } else return false;
-    }
-
-    private function wrapElixir($string)
-    {
-        $array = explode('"', $string);
-        $array[1] = '{{ elixir(\'' . $array[1] . '\') }}';
-        $string = join('"', $array);
-        return $string;
+        }
+        return false;
     }
 
     private function getExtension($string)

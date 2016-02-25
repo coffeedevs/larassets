@@ -8,6 +8,14 @@ a {
     color: white;
 }
 
+p {
+    font-size: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
 .main {
     margin-top: 1rem;
 }
@@ -71,4 +79,24 @@ ul {
 
 .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle {
     border-radius: 4px;
+}
+
+.navbar-link {
+    color: #f4645f;
+}
+
+.about {
+    padding-top: 3rem;
+}
+
+@media (max-width: 481px) {
+    .about {
+        padding-top: 0.5rem;
+    }
+}
+
+@media (max-width: 481px) {
+    .about {
+        padding-top: 0.5rem;
+    }
 }

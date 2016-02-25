@@ -5,8 +5,8 @@
         <small>Larassets will wrap relative resource routes with the asset() helper function</small>
 
         <form action="{{ url('apply') }}" class="form-horizontal">
-
-            <!-- Textarea -->
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+                    <!-- Textarea -->
             <div class="form-group">
                 <div class="">
                     <textarea class="form-control textarea" id="string" name="string" v-model="message"

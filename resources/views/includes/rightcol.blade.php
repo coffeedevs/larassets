@@ -1,4 +1,4 @@
-<div class="col-lg-2 pull-xs-right">
+<div class="col-lg-2 pull-xs-right" style="padding:1rem;">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- LeftCol -->
     <ins class="adsbygoogle"
