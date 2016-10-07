@@ -5,7 +5,7 @@
         integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/clipboard.min.js') }}"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js"></script>
+<script src="{{ asset('js/vue.min.js')  }}"></script>
 <script src="{{ asset('js/vue-resource.min.js') }}"></script>
 <script>
     Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
